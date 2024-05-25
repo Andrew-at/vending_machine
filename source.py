@@ -84,15 +84,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-stand = VendingMachine('Lemons R Us')
-item1 = MenuItem('nori', 0.5, 1.5)
-item2 = MenuItem('wasabi', 0.5, 1.5)
-item3 = MenuItem('udon', 0.5, 1.5)
-
-print(stand.get_name())
-stand.add_menu_item(item1)
-stand.add_menu_item(item2)
-stand.add_menu_item(item3)
-print(item1.get_name())
-print(stand.get_menu_items())
-
+# implement input later
