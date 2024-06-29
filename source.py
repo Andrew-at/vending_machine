@@ -75,13 +75,13 @@ class VendingMachine():
     # adds menu items by updating the dictionary via assigning 'menu_object' as an object
     def add_menu_item(self, menu_object: MenuItem):
         self._menu_items.update({menu_object.get_name(): menu_object.get_price()})
-
-
+# implement input later
+# input class for user input?
+# input will assign names to class objects, eg: input-> nori = menuitem.food('nori')
+# main function
 def main():
     pass
 
 # main function
 if __name__ == "__main__":
     main()
-
-# implement input later
