@@ -1,3 +1,3 @@
 # vending_machine
 virtual vending machine using classes and objects to simulate a vending machine.
-(will try adding a gui later us Tkinter)
+(note: going to try using flask and updating as a project instead of repo)
