@@ -2,7 +2,7 @@ import unittest
 
 from source import MenuItem, SalesForDay, VendingMachine
 
-class TestLemonadeStand(unittest.TestCase):
+class VendingMachine(unittest.TestCase):
 
     def test_1(self):
         """Test get name method for MenuItem class"""
