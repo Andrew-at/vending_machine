@@ -18,15 +18,15 @@ class MenuItem:
         self._cost = cost
         self._price = price
 
-    # return name str value
+    # name getter method
     def get_name(self):
         return self._name
 
-    # return cost float value
+    # cost getter method
     def get_cost(self):
         return self._cost
 
-    # return selling price float value
+    # price getter method
     def get_price(self):
         return self._price
 
