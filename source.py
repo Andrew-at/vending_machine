@@ -2,6 +2,8 @@
 # GitHub username: Andrew-at
 # Date 5.21.24
 # Description: console program imitating a vending machine using classes and objects
+from logging import raiseExceptions
+
 
 # Error/exception handling
 class InvalidSalesItemError(Exception):
@@ -18,15 +20,15 @@ class MenuItem:
         self._cost = cost
         self._price = price
 
-    # name getter method
+    # return name str value
     def get_name(self):
         return self._name
 
-    # cost getter method
+    # return cost float value
     def get_cost(self):
         return self._cost
 
-    # price getter method
+    # return selling price float value
     def get_price(self):
         return self._price
 
@@ -63,24 +65,46 @@ class VendingMachine():
         self._menu_items = {}
         self._sales_record = []
 
-    # returns menu items
-    def get_menu_items(self):
-        machine = self._menu_items
-        return machine
-
     # returns name of item
     def get_name(self):
         return self._name
 
+    def get_current_day(self):
+        return self._current_day
+
+    # returns menu items
+    def get_menu_items(self):
+        return self._menu_items
+
     # adds menu items by updating the dictionary via assigning 'menu_object' as an object
     def add_menu_item(self, menu_object: MenuItem):
         self._menu_items.update({menu_object.get_name(): menu_object.get_price()})
-# implement input later
-# input class for user input?
-# input will assign names to class objects, eg: input-> nori = menuitem.food('nori')
-# main function
+
+    def enter_sales_for_today(self, sales_dictionary):
+        for item in sales_dictionary:
+            if item not in self._menu_items:
+                raise InvalidSalesItemError
+            else:
+                today_sales = SalesForDay(self._current_day, sales_dictionary)
+                self._menu_items.append(today_sales)
+                self._current_day += 1
+
+
 def main():
-    pass
+    item = MenuItem('apple', 1.5, 2.5)
+    stand = VendingMachine('Rising Sun Vending')
+    item1 = MenuItem('nori', 0.5, 1.5)
+    item2 = MenuItem('wasabi', 0.5, 1.5)
+    item3 = MenuItem('udon', 0.5, 1.5)
+
+    print(stand.get_name())
+    stand.add_menu_item(item1)
+    stand.add_menu_item(item2)
+    print(stand.get_menu_items())
+    stand.add_menu_item(item3)
+    print(stand.get_menu_items())
+    print(stand.get_current_day())
+    print(item.get_name())
 
 # main function
 if __name__ == "__main__":
