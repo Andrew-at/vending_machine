@@ -9,12 +9,13 @@ from logging import raiseExceptions
 class InvalidSalesItemError(Exception):
     pass
 
+"""
+represents items in machine with:
+'name', 'cost' and 'price' values
+"""
 
 class MenuItem:
-    """
-    represents items in machine with:
-    'name', 'cost' and 'price' values
-    """
+    
     def __init__(self, name: str, cost: int, price: float):
         self._name = name
         self._cost = cost
@@ -80,6 +81,8 @@ class VendingMachine():
     def add_menu_item(self, menu_object: MenuItem):
         self._menu_items.update({menu_object.get_name(): menu_object.get_price()})
 
+    # checks to see if an item is on the menu
+    # increments day by one if in menu
     def enter_sales_for_today(self, sales_dictionary):
         for item in sales_dictionary:
             if item not in self._menu_items:
@@ -91,20 +94,7 @@ class VendingMachine():
 
 
 def main():
-    item = MenuItem('apple', 1.5, 2.5)
-    stand = VendingMachine('Rising Sun Vending')
-    item1 = MenuItem('nori', 0.5, 1.5)
-    item2 = MenuItem('wasabi', 0.5, 1.5)
-    item3 = MenuItem('udon', 0.5, 1.5)
 
-    print(stand.get_name())
-    stand.add_menu_item(item1)
-    stand.add_menu_item(item2)
-    print(stand.get_menu_items())
-    stand.add_menu_item(item3)
-    print(stand.get_menu_items())
-    print(stand.get_current_day())
-    print(item.get_name())
 
 # main function
 if __name__ == "__main__":
